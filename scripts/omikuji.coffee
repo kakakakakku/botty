@@ -1,8 +1,8 @@
 # Description:
 #   Script for omikuji.
 #
-# Notes:
-#   Script for omikuji.
+# Commands:
+#   hubot omikuji - Challenge omikuji
 module.exports = (robot) ->
 
   robot.respond /omikuji/i, (res) ->
