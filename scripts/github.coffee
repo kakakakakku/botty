@@ -3,6 +3,7 @@
 #
 # Commands:
 #   hubot github trending - Get top 5 GitHub trending repositories
+#   hubot github trending :lang - Get top 5 GitHub trending repositories with lang
 cheerio = require 'cheerio'
 request = require 'request'
 
