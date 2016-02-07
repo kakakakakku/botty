@@ -2,7 +2,7 @@
 #   Get Marvel infomation by "Marvel Comics API"
 #
 # Commands:
-#   hubot /marvel characters :name - Get Marvel character by name
+#   hubot marvel characters :name - Get Marvel character by name
 api = require('marvel-api');
 
 module.exports = (robot) ->
@@ -12,18 +12,19 @@ module.exports = (robot) ->
 
     unless isSetPublicKey msg
       return
-
     unless isSetPrivateKey msg
       return
 
-    marvel = api.createClient(
-      publicKey: process.env.HUBOT_MARVEL_API_PUBLIC_KEY,
-      privateKey: process.env.HUBOT_MARVEL_API_PRIVATE_KEY
-    )
+    client = getClient()
 
-    marvel.characters.findByName characterName, (err, res) ->
+    client.characters.findByName characterName, (err, res) ->
       if err
         console.log err
+        return
+      if !res.data[0]?
+        msg.send 'No character found.'
+        return
+
       image_path = res.data[0].thumbnail.path
       image_extension = res.data[0].thumbnail.extension
       image_size = 'standard_amazing'
@@ -40,3 +41,9 @@ isSetPrivateKey = (msg) ->
     return true
   msg.send '"HUBOT_MARVEL_API_PRIVATE_KEY" is not set.'
   return false
+
+getClient = ->
+  api.createClient(
+    publicKey: process.env.HUBOT_MARVEL_API_PUBLIC_KEY,
+    privateKey: process.env.HUBOT_MARVEL_API_PRIVATE_KEY
+  )
