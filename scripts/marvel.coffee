@@ -2,7 +2,8 @@
 #   Get Marvel infomation by "Marvel Comics API"
 #
 # Commands:
-#   hubot marvel characters :name - Get Marvel character by name
+#   hubot marvel characters :name - Get Marvel character by name (e.g. Iron Man)
+#   hubot marvel creators :name - Get Marvel creator by name (e.g. Gurihiru)
 api = require('marvel-api');
 
 module.exports = (robot) ->
@@ -23,6 +24,29 @@ module.exports = (robot) ->
         return
       if !res.data[0]?
         msg.send 'No character found.'
+        return
+
+      image_path = res.data[0].thumbnail.path
+      image_extension = res.data[0].thumbnail.extension
+      image_size = 'standard_amazing'
+      msg.send image_path + '/' + image_size + '.' + image_extension
+
+  robot.respond /marvel creators (.+)$/i, (msg) ->
+    creatorName = msg.match[1]
+
+    unless isSetPublicKey msg
+      return
+    unless isSetPrivateKey msg
+      return
+
+    client = getClient()
+
+    client.creators.findByName creatorName, (err, res) ->
+      if err
+        console.log err
+        return
+      if !res.data[0]?
+        msg.send 'No creator found.'
         return
 
       image_path = res.data[0].thumbnail.path
