@@ -21,7 +21,7 @@
     "hubot-shipit": "^0.2.0",
     "hubot-slack": "^3.4.2",
     "hubot-weather-ja": "0.1.0",
-    "marvel-api": "^0.3.1",
+    "marvel-api": "1.0.0",
     "request": "^2.69.0"
   },
   "engines": {
