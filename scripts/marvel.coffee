@@ -17,7 +17,6 @@ module.exports = (robot) ->
       return
 
     client = getClient()
-
     client.characters.findByName characterName, (err, res) ->
       if err
         console.log err
@@ -25,11 +24,7 @@ module.exports = (robot) ->
       if !res.data[0]?
         msg.send 'No character found.'
         return
-
-      image_path = res.data[0].thumbnail.path
-      image_extension = res.data[0].thumbnail.extension
-      image_size = 'standard_amazing'
-      msg.send image_path + '/' + image_size + '.' + image_extension
+      sendMarvel(msg, res.data[0])
 
   robot.respond /marvel creators (.+)$/i, (msg) ->
     creatorName = msg.match[1]
@@ -40,7 +35,6 @@ module.exports = (robot) ->
       return
 
     client = getClient()
-
     client.creators.findByName creatorName, (err, res) ->
       if err
         console.log err
@@ -48,11 +42,7 @@ module.exports = (robot) ->
       if !res.data[0]?
         msg.send 'No creator found.'
         return
-
-      image_path = res.data[0].thumbnail.path
-      image_extension = res.data[0].thumbnail.extension
-      image_size = 'standard_amazing'
-      msg.send image_path + '/' + image_size + '.' + image_extension
+      sendMarvel(msg, res.data[0])
 
 isSetPublicKey = (msg) ->
   if process.env.HUBOT_MARVEL_API_PUBLIC_KEY?
@@ -71,3 +61,12 @@ getClient = ->
     publicKey: process.env.HUBOT_MARVEL_API_PUBLIC_KEY,
     privateKey: process.env.HUBOT_MARVEL_API_PRIVATE_KEY
   )
+
+sendMarvel = (msg, obj) ->
+  image_path = obj.thumbnail.path
+  image_extension = obj.thumbnail.extension
+  image_size = 'standard_amazing'
+
+  msg.send obj.id
+  msg.send obj.name || obj.fullName
+  msg.send image_path + '/' + image_size + '.' + image_extension
