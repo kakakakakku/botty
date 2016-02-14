@@ -70,3 +70,4 @@ sendMarvel = (msg, obj) ->
   msg.send obj.id
   msg.send obj.name || obj.fullName
   msg.send image_path + '/' + image_size + '.' + image_extension
+  msg.send obj.urls[0].url
