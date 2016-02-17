@@ -4,7 +4,7 @@
 # Commands:
 #   hubot marvel characters :name - Get Marvel character by name (e.g. Iron Man)
 #   hubot marvel creators :name - Get Marvel creator by name (e.g. Gurihiru)
-api = require('marvel-api');
+api = require('marvel-api')
 
 module.exports = (robot) ->
 
@@ -67,7 +67,6 @@ sendMarvel = (msg, obj) ->
   image_extension = obj.thumbnail.extension
   image_size = 'standard_amazing'
 
-  msg.send obj.id
   msg.send obj.name || obj.fullName
   msg.send image_path + '/' + image_size + '.' + image_extension
   msg.send obj.urls[0].url
