@@ -2,9 +2,9 @@
 #   Go to lunch!
 #
 # Commands:
-#   hubot go for to list - List members
-#   hubot go for to join :name - Join lunch
-#   hubot go for to clear - Clear lunch event
+#   hubot go to lunch list - List members
+#   hubot go to lunch join :name - Join lunch
+#   hubot go to lunch clear - Clear lunch event
 #
 # Author:
 #   kakakakakku <https://github.com/kakakakakku>
