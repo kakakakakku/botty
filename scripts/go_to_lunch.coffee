@@ -1,10 +1,10 @@
 # Description:
-#   Go for lunch!
+#   Go to lunch!
 #
 # Commands:
-#   hubot go for lunch list - List members
-#   hubot go for lunch join :name - Join lunch
-#   hubot go for lunch clear - Clear lunch event
+#   hubot go for to list - List members
+#   hubot go for to join :name - Join lunch
+#   hubot go for to clear - Clear lunch event
 #
 # Author:
 #   kakakakakku <https://github.com/kakakakakku>
@@ -12,14 +12,14 @@
 module.exports = (robot) ->
   key = 'lunch'
 
-  robot.respond /go for lunch list$/, (msg) ->
+  robot.respond /go to lunch list$/, (msg) ->
     members = getMembers()
     if members.length != 0
       msg.send members.toString()
       return
     msg.send 'No member exist.'
 
-  robot.respond /go for lunch join (\S+)$/, (msg) ->
+  robot.respond /go to lunch join (\S+)$/, (msg) ->
     member = msg.match[1]
     members = getMembers()
     if member in members
@@ -36,7 +36,7 @@ module.exports = (robot) ->
     robot.brain.set(key, tmpMembers)
     msg.send tmpMembers.toString()
 
-  robot.respond /go for lunch clear$/, (msg) ->
+  robot.respond /go to lunch clear$/, (msg) ->
     robot.brain.set(key, [])
     msg.send 'Lunch is closed.'
 
