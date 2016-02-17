@@ -14,7 +14,7 @@ module.exports = (robot) ->
 
   robot.respond /go to lunch list$/, (msg) ->
     members = getMembers()
-    if members.length != 0
+    if members.length is 0
       msg.send members.toString()
       return
     msg.send 'No member exist.'
@@ -26,18 +26,18 @@ module.exports = (robot) ->
       msg.send 'You are already joined.'
       return
 
-    if members.length != 0
+    if members.length is 0
       tmpMembers = members
     else
       tmpMembers = []
 
     tmpMembers.push member
 
-    robot.brain.set(key, tmpMembers)
+    robot.brain.set key, tmpMembers
     msg.send tmpMembers.toString()
 
   robot.respond /go to lunch clear$/, (msg) ->
-    robot.brain.set(key, [])
+    robot.brain.set key, []
     msg.send 'Lunch is closed.'
 
   getMembers = ->
