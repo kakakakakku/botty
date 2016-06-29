@@ -11,5 +11,6 @@
   "hubot-shipit",
   "hubot-weather-ja",
   "hubot-mackerel-graph",
+  "hubot-aws-webinars",
   "hubot-lgtm"
 ]
