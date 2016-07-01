@@ -7,11 +7,11 @@
   "dependencies": {
     "cheerio": "^0.20.0",
     "hubot": "^2.17.0",
-    "hubot-aws-webinars": "0.0.2",
+    "hubot-aws-webinars": "^0.0.3",
     "hubot-diagnostics": "0.0.1",
     "hubot-google-images": "^0.2.6",
     "hubot-google-translate": "^0.2.0",
-    "hubot-help": "^0.1.3",
+    "hubot-help": "^0.2.0",
     "hubot-heroku-keepalive": "^1.0.2",
     "hubot-lgtm": "https://github.com/bouzuya/hubot-lgtm/archive/master.tar.gz",
     "hubot-mackerel-graph": "0.0.3",
