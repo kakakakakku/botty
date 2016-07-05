@@ -16,6 +16,7 @@
     "hubot-lgtm": "https://github.com/bouzuya/hubot-lgtm/archive/master.tar.gz",
     "hubot-mackerel-graph": "0.0.3",
     "hubot-maps": "0.0.2",
+    "hubot-mention-metrics": "git@github.com:kakakakakku/hubot-mention-metrics.git",
     "hubot-pugme": "^0.1.0",
     "hubot-redis-brain": "0.0.3",
     "hubot-reload-scripts": "^0.1.2",
