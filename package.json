@@ -7,7 +7,7 @@
   "dependencies": {
     "cheerio": "^0.20.0",
     "hubot": "^2.17.0",
-    "hubot-aws-webinars": "^0.0.3",
+    "hubot-aws-webinars": "0.0.4",
     "hubot-diagnostics": "0.0.1",
     "hubot-google-images": "^0.2.6",
     "hubot-google-translate": "^0.2.0",
