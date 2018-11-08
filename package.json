@@ -27,8 +27,5 @@
     "hubot-weather-ja": "0.1.0",
     "marvel-api": "1.0.0",
     "request": "^2.69.0"
-  },
-  "engines": {
-    "node": "0.10.x"
   }
 }
