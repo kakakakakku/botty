@@ -15,7 +15,7 @@
     "hubot-heroku-keepalive": "^1.0.2",
     "hubot-lgtm": "https://github.com/bouzuya/hubot-lgtm/archive/master.tar.gz",
     "hubot-mackerel-graph": "0.0.3",
-    "hubot-maps": "0.0.2",
+    "hubot-maps": "0.0.3",
     "hubot-mention-metrics": "https://github.com/kakakakakku/hubot-mention-metrics/archive/master.tar.gz",
     "hubot-pugme": "^0.1.0",
     "hubot-redis-brain": "0.0.3",
